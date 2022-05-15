@@ -1,0 +1,13 @@
+doctype html
+html(lang='ru')
+  include ../templates/head
+
+  body(itemscope="itemscope" itemtype="http://schema.org/WebPage")
+    include ../_components/header.pug
+    main
+      h1.visually-hidden FlexWave Photonics
+      section.promo
+      section.about-us
+        .container
+          include ../_components/button-with-js-hover.pug
+    include ../_components/footer.pug

@@ -1,0 +1,38 @@
+header.header
+  .container
+    .row
+      .col-lg-2.align-self-lg-center
+        a.header__logo(href='/')
+          img(src='./img/logo.png' width='208' height='60' alt='Logo FlexWave Photonics')
+      .col-lg-9.offset-lg-1
+        .row
+          .header__nav-wrap
+            nav.header__navigation.navigation
+              ul.navigation__list
+                li.navigation__list-item.list-item.home-item
+                  a.list-item__link(href='/')
+                    svg.svg-icon--brand-color(width='14' height='16')
+                      use(xlink:href='./img/icons.svg#home')
+                li.navigation__list-item.list-item
+                  a.list-item__link.hvr-underline-from-center(href='javascript:void(0)') Brands
+                li.navigation__list-item.list-item
+                  a.list-item__link.hvr-underline-from-center(href='javascript:void(0)') Solutions
+                li.navigation__list-item.list-item
+                  a.list-item__link.hvr-underline-from-center(href='javascript:void(0)') Press
+                li.navigation__list-item.list-item
+                  a.list-item__link.hvr-underline-from-center(href='javascript:void(0)') Services
+                li.navigation__list-item.list-item
+                  a.list-item__link.hvr-underline-from-center(href='javascript:void(0)') Company
+                li.navigation__list-item.list-item
+                  a.list-item__link.hvr-underline-from-center(href='javascript:void(0)') Contacts
+            .header__navigation-add.navigation-add
+              .navigation-add__lang-block.lang-block
+                button.lang-block__button.button-dropdown.js-dropdown-btn
+                  svg.svg-icon--brand-color(width='20' height='20')
+                    use(xlink:href='./img/icons.svg#arrow_circle_down')
+                      //li.see-all
+                      //  a(href='javascript:void(0)') All Pulsed Lasers
+                      //- for (let x = 1; x < 11; x++)
+                      //    li
+                      //      a(href='javascript:void(0)') Pulsed Laser
+                      //        = ' ' + x

@@ -1,0 +1,25 @@
+footer.footer
+  .container
+    .row
+      .col-lg-3
+        a.footer__logo(href='/')
+          img.footer__logo-img(src='./img/logo.png' width='208' height='60' alt='Logo FlexWave Photonics')
+      .col-lg-5
+        ul.footer__list-main
+          li.footer__list-main-item
+            a.footer__list-main-link.hvr-underline-from-center(href='javascript:void(0)') Brands
+        .authors
+          .authors__wrap.authors__copyright
+            svg.authors__icon(width='38' height='38')
+              use(xlink:href='./img/icons.svg#copyright')
+            | FlexWave Photonics OÜ
+            br
+            | All rights reserved &#169; 2022
+          a.authors__wrap.authors__stek(href='javascript:void(0)' title='STEK')
+            svg.authors__icon(width='39' height='38')
+              use(xlink:href='./img/icons.svg#logo_stek')
+            | STEK Ltd.
+            br
+            | Design and Development
+
+include ../templates/scripts.pug

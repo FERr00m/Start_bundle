@@ -1,0 +1,80 @@
+// -----------------------------------------------------------------------------
+// This file contains all @font-face declarations, if any.
+// -----------------------------------------------------------------------------
+/*=====Fonts=====*/
+/*Gilroy*/
+@font-face {
+  font-family: 'Gilroy';
+  src: local('Gilroy'),
+  local('Gilroy-Regular'),
+  url('../fonts/Gilroy-Regular.woff2') format('woff2'),
+  url('../fonts/Gilroy-Regular.woff') format('woff'),
+  url('../fonts/Gilroy-Regular.ttf') format('ttf');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Gilroy-Medium';
+  src: local('Gilroy-Medium'),
+  url('../fonts/Gilroy-Medium.woff2') format('woff2'),
+  url('../fonts/Gilroy-Medium.woff') format('woff'),
+  url('../fonts/Gilroy-Medium.ttf') format('ttf');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Gilroy-Black';
+  src: local('Gilroy-Black'),
+  url('../fonts/Gilroy-Black.woff2') format('woff2'),
+  url('../fonts/Gilroy-Black.woff') format('woff'),
+  url('../fonts/Gilroy-Black.ttf') format('ttf');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Gilroy-Bold';
+  src: local('Gilroy-Bold'),
+  url('../fonts/Gilroy-Bold.woff2') format('woff2'),
+  url('../fonts/Gilroy-Bold.woff') format('woff'),
+  url('../fonts/Gilroy-Bold.ttf') format('ttf');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/*Acrom*/
+@font-face {
+  font-family: 'Acrom';
+  src: local('Acrom'),
+  local('Acrom-Regular'),
+  url('../fonts/Acrom-Regular.woff2') format('woff2'),
+  url('../fonts/Acrom-Regular.woff') format('woff'),
+  url('../fonts/Acrom-Regular.ttf') format('ttf');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Acrom-Bold';
+  src: local('Acrom-Bold'),
+  url('../fonts/Acrom-Bold.woff2') format('woff2'),
+  url('../fonts/Acrom-Bold.woff') format('woff'),
+  url('../fonts/Acrom-Bold.ttf') format('ttf');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Acrom-ExtraBold';
+  src: local('Acrom-ExtraBold'),
+  url('../fonts/Acrom-ExtraBold.woff2') format('woff2'),
+  url('../fonts/Acrom-ExtraBold.woff') format('woff'),
+  url('../fonts/Acrom-ExtraBold.ttf') format('ttf');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+/*=====End Fonts=====*/

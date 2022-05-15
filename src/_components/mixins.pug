@@ -1,0 +1,504 @@
+mixin input(data)
+  .lm-form__group
+    .lm-form__grouplabel=data.label
+    .input-group
+      .lm-form__hint
+        block
+      span( class="input-group-text lm-form__group-text")=data.name
+        +icon('question', 'lm-form__question')
+      input(type="text" class="form-control" placeholder=data.placeholder aria-label="Sitename" name=data.name)
+
+mixin icon(name, mod)
+  - mod = mod || ''
+  if mod
+    svg(class=`icon icon-${name} ${mod}`)
+      use(xlink:href=`img/sprite.svg#${name}`)
+  else
+    svg(class=`icon icon-${name}`)
+      use(xlink:href=`img/sprite.svg#${name}`)
+      
+
+mixin button-blue(title)
+  a(href="javascript:void(0);").button.button-blue=title
+  
+mixin button-white(title)
+  a(href="javascript:void(0);").button.button-white=title
+    
+mixin button-gray(title)
+  a(href="javascript:void(0);").button.button-gray=title
+  
+mixin button-tr(title)
+  a(href="javascript:void(0);").button.button-tr=title
+
+mixin link-more-content(title)
+  a(href="javascript:void(0);").link-more-content=title
+
+
+        
+mixin tabs-decs__item(data)
+  .tabs-decs__item
+    .tabs-decs__title=data.title
+    .tabs-decs__text=data.text
+    
+mixin input__wrap(data)
+  .input__wrap
+    input(type=`${data.type}`, placeholder=`${data.placeholder}`).login-input
+    label.label !{data.placeholder}
+      if(data.star===true)
+        span.star *
+    .error-text Некорректные данные
+
+
+
+
+mixin advant-block
+  .slider__wrap.slider__wrap-advant
+    .container-arrows
+    .advant-block
+      +advant-item({
+        img: 'advant-img-1.svg',
+        title: 'Профессиональная консультация'
+      })
+      +advant-item({
+        img: 'advant-img-2.svg',
+        title: 'Удобные условия поставки'
+      })
+      +advant-item({
+        img: 'advant-img-3.svg',
+        title: 'Оперативноу производство'
+      })
+      +advant-item({
+        img: 'advant-img-4.svg',
+        title: 'Бесплатая доставка от 5000 ₽'
+      })
+
+mixin step-head-collaps(num,name)
+  .step__head-collaps
+    .order-step__head
+      .order-step__head-left
+        .step__head-num=num
+        .step__head-name=name
+
+
+mixin final-cost__block
+  .final-cost__block
+    .final-cost__item
+      .final-cost__left Товаров на:
+      .final-cost__right
+        .order-item__cost-wrap
+          .order-item__cost-top.price 26 496 ₽
+          .old-price.price 36 496 ₽
+    .final-cost__item
+      .final-cost__left Общий вес:
+      .final-cost__right
+        .order-item__cost-top.price 1000000 л
+    .bottom-line.mb-3
+    .final-cost__item
+      .final-cost__left Доставка:
+      .final-cost__right
+        .order-item__cost-top.price бесплатно
+    .final-cost__item.gray__block
+      .final-cost__left Экономия:
+      .final-cost__right
+        .order-item__cost-top.price 10 000 ₽
+    .final-cost__item.pt-lg-3.pb-lg-2
+      .final-cost__left Итого:
+      .final-cost__right
+        .order-item__cost-top.price.final-cost-big 40 244  ₽  
+
+
+mixin orders-list-step-next
+  .orders-list__wrap.order-steps
+    .order-step__head
+      .order-step__head-left
+        .step__head-num
+          img(src='img/icon-check-blue.svg' alt='', title='').icon-check-blue
+        .step__head-name Товары в заказе
+      .order-step__head-right
+        //a(href="javascript:void(0);").button-link Изменить
+    +order-item-step({
+      name: 'Средство для очистки колесных дисков слово «Disk», 5 л',
+      quantity: '1 шт',
+      top_cost: '3200 ₽',
+      bottom_cost: '26 496 ₽'
+    })
+    +order-item-step({
+      name: 'Средство для очистки колесных дисков слово «Disk», 5 л',
+      quantity: '1 шт',
+      top_cost: '1260 ₽'
+    })
+    
+    
+mixin order-step__middle-type(data)
+  label.checkbox-wrap.checkbox-wrap_order
+    .middle-type__block
+      img(src=`img/${data.img}` alt='', title='').middle-type__block-img
+      .input-checkbox__wrap
+        input(type='radio' name=`${data.nameRadio}`).input-checkbox
+      if(data.cost !== '')
+        .middle-type__cost=data.cost
+    .middle-type__name !{data.name}
+        
+mixin pay-step__middle-type(data)
+  label.checkbox-wrap.checkbox-wrap_order
+    .middle-type__block
+      img(src=`img/${data.img}` alt='', title='').middle-type__block-img
+      .input-checkbox__wrap
+        input(type='radio' name=`${data.nameRadio}`).input-checkbox
+    .middle-type__name !{data.name}
+
+        
+mixin delivery-step-next
+  .orders-list__wrap
+    .order-step__head
+      .order-step__head-left
+        .step__head-num
+          img(src='img/icon-check-blue.svg' alt='', title='').icon-check-blue
+        .step__head-name Доставка
+      .order-step__head-right
+    .step-next__block
+      .step-next__block-left
+        .step-next__img-wrap
+          img(src='img/delivery-type-icon2.svg' alt='', title='').step-next-img
+        .step-next__block--inner
+          .step-next__name Доставка с использованием автоматизированной службы доставки Boxberry
+          .order-item__cost-top.price.d-block.d-lg-none 200 ₽
+      .step-next__block-right
+        .order-item__cost-top.price.d-none.d-lg-block 200 ₽
+          
+          
+mixin pay-step-next
+  .orders-list__wrap
+    .order-step__head
+      .order-step__head-left
+        .step__head-num
+          img(src='img/icon-check-blue.svg' alt='', title='').icon-check-blue
+        .step__head-name Оплата
+      .order-step__head-right
+    .step-next__block
+      .step-next__block-left
+        .step-next__img-wrap
+          img(src='img/pay-type-icon2.svg' alt='', title='').step-next-img
+        .step-next__name Банковский перевод
+          
+mixin docs-block
+  .tabs-docs__item
+    .tabs-docs__data 25.12.2020
+    .tabs-docs__decs
+      a(href="javascript:void(0);").tabs-docs__name.tabs-docs__name-link
+         |РУ на систему дозирования жидкостей автоматическая прецизионная QIAgility с принадлежностями
+      .tabs-docs__bill ФСЗ 2008/03399 от 21 июня 2016 года
+    .tabs-docs__right
+      .tabs-docs__format.price PDF 256 кб
+      .tabs-docs__icons
+        a(href="javascript:void(0);" download).tabs-docs-icon-item
+          img(src='img/icon-save.svg' alt='', title='').save-img
+        a(href="javascript:void(0);").tabs-docs__icon-item
+          img(src='img/icon-print.svg' alt='', title='').print-img
+
+mixin lk-block-right(legal)
+  .lk__block-right.d-none.d-lg-block
+    if(legal)
+      .lk__block-item.accord-wrap--js
+        .lk-right__title.accord-title--js Профиль
+        .lk-right__block.accord-block--js.level-1
+          .lk__block-item
+            a(href="javascript:void(0);").lk__block-link Мой профиль
+          .lk__block-item.accord-wrap--js
+            .lk-right__title.accord-title--js Организации
+            .lk-right__block.accord-block--js.level-2
+              a(href="javascript:void(0);").lk__block-link Организация 1
+              a(href="javascript:void(0);").lk__block-link Организация 2
+              a(href="javascript:void(0);").lk__block-link Организация 3
+          .lk__block-item.accord-wrap--js
+            .lk-right__title.accord-title--js Пользователи
+            .lk-right__block.accord-block--js.level-2
+              a(href="javascript:void(0);").lk__block-link Пользователь 1
+
+    else
+      .lk__block-item.active
+        a(href="javascript:void(0);").lk__block-link Профиль    
+    .lk__block-item
+      a(href="javascript:void(0);").lk__block-link Документация
+    if(legal)
+      .lk__block-item
+        a(href="javascript:void(0);").lk__block-link Статусы заказов по юридическим лицам
+    .lk__block-item
+      a(href="javascript:void(0);").lk__block-link История заказов
+    .lk__block-item
+      a(href="javascript:void(0);").lk__block-link Рекламация
+    .lk__block-item.lk__block-bottom
+      a(href="javascript:void(0);").lk__block-link Выйти
+
+
+
+
+mixin lk-info-item(argument,count,value,but)
+  .lk__info-item
+    .row
+      .col-lg-5
+        .lk__info-argument=argument
+      .col-lg-7
+        -for(var i=0; i<`${count}`; i++)
+          textarea(type='text' placeholder='Введите информацию' disabled).input-text
+            | !{value}
+        if(but===true)
+          .d-none.d-lg-block
+            a(href="javascript:void(0);").button.button-blue_dark-small.mb-5 Добавить ещё
+  if(but === true)
+    .d-block.d-lg-none
+      a(href="javascript:void(0);").button.button-blue_dark-small.mb-5 Добавить ещё
+
+mixin lk-info-item-tel(argument,count,value,but)
+  .lk__info-item
+    .row
+      .col-lg-5
+        .lk__info-argument=argument
+      .col-lg-4
+        .input-address
+          textarea(type='text' placeholder='Введите информацию' disabled).input-text
+            | !{value}
+          +edit-block('Добавить телефон')
+        if(but===true)
+          //.d-none.d-lg-block
+          //  a(href="javascript:void(0);").button.button-blue_dark-small.mb-5 Добавить телефон +
+  if(but === true)
+    .d-block.d-lg-none
+      a(href="javascript:void(0);").button.button-blue_dark-small.mb-3 Добавить телефон +
+
+mixin lk-info-item-address(argument,count,value,but)
+  .lk__info-item
+    .row
+      .col-lg-5
+        .lk__info-argument=argument
+      .col-lg-7
+        -for(var i=0; i<`${count}`; i++)
+          .input-address
+            textarea(type='text' placeholder='Введите информацию' disabled).input-text
+              | !{value}
+            +edit-block('Добавить адрес')
+        if(but===true)
+  if(but === true)
+    .d-block.d-lg-none
+      a(href="javascript:void(0);").button.button-blue_dark-small.mb-5 Добавить адрес доставки
+
+
+    
+mixin edit-block(text)
+  .edit-block
+    a(href="javascript:void(0);").button-link.add-button=text
+    a(href="javascript:void(0);").button-link
+      .edit-icon-button
+    a(href="javascript:void(0);").button-link
+      .delete-button
+
+
+
+mixin history-orders-item
+  .history-orders__wrap
+    .history-orders__item
+      .history-orders__item-top
+        .history-orders__item-left
+          a(href="javascript:void(0);").history-orders__title Заказ 18 от 14.08.2020
+          .text-small-gray 1 товар на сумму 180 руб.
+        .history-orders__item-right
+          <!-- Статус Отменен - status-red -->
+          .history-orders__status.status-green Принят
+      .history-orders__item-bottom
+        <!-- Статус Отменен - status-pay-red -->
+        .history-orders__item-detail.status-pay-green <span class='span-gray'>Статус оплаты:</span> оплачен
+        .history-orders__item-detail <span class='span-gray'>Оплата:</span> банковский перевод
+        .history-orders__item-detail <span class='span-gray'>Доставка:</span> самовывоз
+        .button-wrap
+          a(href="javascript:void(0);").button.button-blue Оплатить
+
+mixin order-detail-item(argument,value='')
+  .info-history__block
+    .text-small-gray=argument
+    if(value !='')
+      .lk__info-value=value
+    
+
+
+    
+mixin load-block
+  .load-file
+    #dropzone.dropzone(action='/file-upload')
+      .fallback
+        input(name='file' type='file' multiple='').drop-file
+      .dz-message(data-dz-message='') Загрузить документ
+
+mixin orders-list
+  -for(var i=0; i<5; i++) 
+    +history-orders-item
+  +paginator
+        
+
+mixin social__list
+  ul.social__list
+    li.social__item
+      a(href="javascript:void(0);").social-link
+        .social-img.social-img_inst
+    li.social__item
+      a(href="javascript:void(0);").social-link
+        .social-img.social-img_fb
+    li.social__item
+      a(href="javascript:void(0);").social-link
+        .social-img.social-img_you
+    li.social__item
+      a(href="javascript:void(0);").social-link
+        .social-img.social-img_tel
+    li.social__item
+      a(href="javascript:void(0);").social-link
+        .social-img.social-img_tw
+
+
+
+
+mixin share-block
+  .button-share__wrap
+    a(href="javascript:void(0);").button-share Поделиться
+    .share-block
+      script(src='https://yastatic.net/share2/share.js')
+      .ya-share2(data-curtain='' data-shape='round' data-color-scheme='blackwhite' data-services='facebook,telegram,twitter')
+
+
+        
+        
+mixin drop__menu-wrap(mod)
+  div(class='drop__menu-wrap ' + mod)
+    .drop__menu
+      ul.drop__menu-list
+        li.drop__menu-item.menu-item-js(data-menu-item='home')
+          a(href="javascript:void(0);").drop__menu-link
+            +icon('home1', 'drop__menu-item-img')
+            .drop__menu-item-text Для дома
+        li.drop__menu-item.menu-item-js(data-menu-item='auto')
+          a(href="javascript:void(0);").drop__menu-link
+            +icon('detergent-1', 'drop__menu-item-img')
+            .drop__menu-item-text Автохимия и детейлинг
+        li.drop__menu-item.menu-item-js(data-menu-item='dry-cleaning')
+          a(href="javascript:void(0);").drop__menu-link
+            +icon('cloth-1', 'drop__menu-item-img')
+            .drop__menu-item-text Химчистка и прачеченая
+        li.drop__menu-item.menu-item-js(data-menu-item='manufacture')
+          a(href="javascript:void(0);").drop__menu-link
+            +icon('clean-dishes-1', 'drop__menu-item-img')
+            .drop__menu-item-text Пищевые производства
+        li.drop__menu-item.menu-item-js(data-menu-item='disinfection')
+          a(href="javascript:void(0);").drop__menu-link
+            +icon('hand-sanitizer1', 'drop__menu-item-img')
+            .drop__menu-item-text Дезинфекция
+        li.drop__menu-item.menu-item-js(data-menu-item='cleaning')
+          a(href="javascript:void(0);").drop__menu-link
+            +icon('wipes', 'drop__menu-item-img')
+            .drop__menu-item-text Клининг (HoReCa)
+        li.drop__menu-item.menu-item-js(data-menu-item='service')
+          a(href="javascript:void(0);").drop__menu-link
+            +icon('repair', 'drop__menu-item-img')
+            .drop__menu-item-text Для ремонта
+      +drop__menu--inner('home')
+      +drop__menu--inner('auto')
+      +drop__menu--inner('dry-cleaning')
+      +drop__menu--inner('manufacture')
+      +drop__menu--inner('disinfection')
+      +drop__menu--inner('cleaning')
+      +drop__menu--inner('service')   
+  
+mixin count
+  .count__wrap
+    .count
+      a(href="javascript:void(0);").count-minus
+        svg(width='23' height='23' viewBox='0 0 23 23' fill='none' xmlns='http://www.w3.org/2000/svg')
+          path(d='M4.79102 11.5H18.2077' stroke-width='2' stroke-linecap='round' stroke-linejoin='round')
+      input.input-count(type='text', value='1 шт')
+      a(href="javascript:void(0);").count-plus
+        svg(width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg')
+          path(d='M9.67188 3.75V15.4167' stroke-width='2' stroke-linecap='round' stroke-linejoin='round')
+          path(d='M3.83789 9.58398H15.5046' stroke-width='2' stroke-linecap='round' stroke-linejoin='round')
+    
+mixin captcha
+  .contact-inputs__wrap
+    .contact-inputs__left
+      .input__wrap
+        .captcha__wrap 88 / 8 =
+    .contact-inputs__right
+      +input__wrap({
+        type: 'text',
+        placeholder: 'Введите ответ'
+      })
+mixin captcha-big
+  .row.contact-inputs__wrap
+    .col-6 
+      .contact-inputs__left
+        .input__wrap
+          .captcha__wrap 88 / 8 =
+    .col-6
+      .contact-inputs__right
+        +input__wrap({
+          type: 'text',
+          placeholder: 'Введите ответ'
+        })
+    
+mixin property-icon__block
+  .property-icon__block
+    img(src='img/property-icon-1.png' alt='', title='').property-icon
+    img(src='img/property-icon-2.png' alt='', title='').property-icon
+    img(src='img/property-icon-3.png' alt='', title='').property-icon
+    img(src='img/property-icon-4.png' alt='', title='').property-icon
+  
+mixin edit-button
+  .edit-buttons
+    a(href="javascript:void(0);").button-link.edit-button 
+      span Изменить
+    a(href="javascript:void(0);").button-link.save-button 
+      span Сохранить
+mixin pickup__block
+  .pickup__block
+    .pickup__block-title
+      | Самовывоз заказа
+    -for (var i = 0; i < 3; i++)
+      .pickup__block-item
+        .pickup__block-item-name Средство для очистки колесных дисков слово «Disk», 5 л
+        .pickup__block-item-desc Для самовывоза доступно сегодня
+        .pickup__block-item-quant 12 штук
+  
+mixin city__block__wrap
+  .city__block__wrap
+    .city__block.arrow-little
+      img(src='img/icon-geo.svg' alt='', title='').icon-geo
+      .city-name Краснодар
+    .city__block__dropdown
+      .city__block__dropdown-inner
+        .city-list_nano.nano
+          .city-list_nano-content.nano-content
+            ul.city-list
+              li.city-item
+                a(href="javascript:void(0);").city-link Москва
+              li.city-item
+                a(href="javascript:void(0);").city-link Краснодар
+              li.city-item
+                a(href="javascript:void(0);").city-link Санкт-Петербург
+              li.city-item
+                a(href="javascript:void(0);").city-link Санкт-Петербург
+              li.city-item
+                a(href="javascript:void(0);").city-link Санкт-Петербург
+              li.city-item
+                a(href="javascript:void(0);").city-link Санкт-Петербург
+              li.city-item
+                a(href="javascript:void(0);").city-link Санкт-Петербург      
+              li.city-item
+                a(href="javascript:void(0);").city-link Санкт-Петербург
+              li.city-item
+                a(href="javascript:void(0);").city-link Санкт-Петербург
+              li.city-item
+                a(href="javascript:void(0);").city-link Санкт-Петербург
+  
+mixin nav-top
+  .nav-top.d-none.d-lg-block
+    .container
+      ul.nav-top__list
+        each val in ['Для дома', 'Пищевые производства', 'Клининиг (HoReCa)', 'Профессиональная автокосметика', 'Дезинфекция', 'Для ремонта', 'Химчистка и прачечная']
+          li.nav-top__item
+            a(href="javascript:void(0);").nav-top__link !{val}
+      
